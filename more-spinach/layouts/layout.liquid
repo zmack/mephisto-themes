@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>{{ site.title }} {% if article %} {{ article.title }} {% else %} {{ site.subtitle }} {% endif %}</title>
+  <meta name="generator" content="Mephisto" />
+  {{ 'main' | stylesheet }}
+  {{ 'highlighting/dark.css' | stylesheet }}
+  {{ 'highlight.pack.js' | javascript }}
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+  {{ site.home_section | articles_feed }}
+</head>
+<body>
+  <div id="header">
+    <h1><a href='/'>{{ site.title }}</a></h1>
+    <cite class="description">{{ site.subtitle }}</cite>
+  </div>
+
+  <div id="content">
+    {{ content_for_layout }}
+    <div id="sidebar">
+      <h2>Tags</h2>
+      <ul id="tag_list">
+        {% for tag in site.tags %}<li>{{ tag | link_to_tag  }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+
+
+  <div id="footer">{{ site.title }} is proudly using the <a href="http://ifelse.co.uk/simpla">More spinach</a> originally designed by <a href="http://andascarygoat.com">zmack</a>. Powered by <a href="http://mephistoblog.com/">Mephisto</a></div>
+</body>
+</html>
